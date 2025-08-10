@@ -14,7 +14,7 @@ function App() {
           <div className="navbar-end">
             <label className="flex cursor-pointer gap-2 items-center">
               <Sun className="w-5 h-5" />
-              <input type="checkbox" value="synthwave" className="toggle toggle-sm theme-controller" />
+              <input type="checkbox" value="dark" className="toggle toggle-sm theme-controller" />
               <Moon className="w-5 h-5" />
             </label>
           </div>
