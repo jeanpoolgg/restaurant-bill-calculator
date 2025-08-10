@@ -4,12 +4,12 @@ import { ProductGrid } from "./components/ProductGrid";
 
 function App() {
   return (
-    <div className="bg-base-100 min-h-screen m-0 p-0">
+    <div className="bg-base-200 min-h-screen m-0 p-0">
       <div className="max-w-7xl mx-auto pt-6">
 
         {/* Header */}
         <div className="px-4 mx-auto sm:px-6 lg:px-8 pb-8 pt-4">
-          <div className="navbar px-8 rounded-4xl glass shadow-sm">
+          <div className="navbar px-8 rounded-4xl glass bg-base-50 shadow-sm">
             <div className="navbar-start">
               <Calculator className="w-5 h-5" />
               <p className=" ms-2 text-md">Restaurant Bill Calculator</p>
