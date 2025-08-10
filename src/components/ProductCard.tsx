@@ -3,9 +3,10 @@ import type { Product } from "../types";
 
 type ProductCardProps = {
 	product: Product;
+	addItem: (product: Product) => void;
 };
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, addItem }: ProductCardProps) {
 	return (
 		<article
 			className="group relative overflow-hidden transition"
@@ -73,6 +74,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 					</p>
 
 					<button
+						onClick={() => addItem(product)}
 						type="button"
 						className="btn btn-sm btn-circle bg-base-100 dark:bg-white dark:text-black dark:border-gray-400 hover:bg-base-300"
 					>

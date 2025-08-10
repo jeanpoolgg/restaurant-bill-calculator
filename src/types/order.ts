@@ -1,11 +1,5 @@
-import type { CartItem } from "./cartItem";
+import type { Product } from "./product";
 
-export type Order = {
-	id: string;
-	items: CartItem[];
-	subtotal: number;
-	tipPercentage: number;
-	tipAmount: number;
-	total: number;
-	timestamp: Date;
+export type OrderItem = Product & {
+	quantity: number;
 };
