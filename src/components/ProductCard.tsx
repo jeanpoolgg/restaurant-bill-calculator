@@ -1,7 +1,7 @@
 import { Plus } from "lucide-react";
 import type { Product } from "../types";
 
-export default function ProductCard({ image, name, price }: Product) {
+export default function ProductCard({ image, name, price, rating }: Product) {
 	return (
 		<article
 			className="group relative overflow-hidden transition"
@@ -25,31 +25,35 @@ export default function ProductCard({ image, name, price }: Product) {
 						name="rating-1"
 						className="mask mask-star-2 bg-yellow-400"
 						aria-label="1 star"
+						aria-current={rating === 1}
 					/>
 					<input
 						type="radio"
 						name="rating-2"
 						className="mask mask-star-2 bg-yellow-400"
 						aria-label="2 star"
+						aria-current={rating === 2}
 					/>
 					<input
 						type="radio"
 						name="rating-3"
 						className="mask mask-star-2 bg-yellow-400"
 						aria-label="3 star"
+						aria-current={rating === 3}
 					/>
 					<input
 						type="radio"
 						name="rating-4"
 						className="mask mask-star-2 bg-yellow-400"
 						aria-label="4 star"
-						checked={true}
+						aria-current={rating === 4}
 					/>
 					<input
 						type="radio"
 						name="rating-5"
 						className="mask mask-star-2 bg-yellow-400"
 						aria-label="5 star"
+						aria-current={rating === 5}
 					/>
 				</div>
 				<h3 className="line-clamp-1 mb-2 text-md font-medium text-base-content">
