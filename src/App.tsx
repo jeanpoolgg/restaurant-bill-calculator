@@ -1,26 +1,43 @@
 
 function App() {
-
   return (
-    <>
-      <div className="bg-white w-full h-screen" >
-        <div className="card bg-base-100 w-96 shadow-sm">
-          <figure>
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-              alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Card Title</h2>
-            <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b border-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center space-x-3">
+              <div>
+                <h1 className="text-xl font-bold text-gray-900">
+                  Restaurant Bill Calculator
+                </h1>
+                <p className="text-sm text-gray-500">
+                  Order and calculate your tip easily
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </>
-  )
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Products Section */}
+          <div className="lg:col-span-2">
+            Product Section
+          </div>
+
+          {/* Cart Section */}
+          <div>
+            Cart Section
+          </div>
+        </div>
+      </main>
+
+
+    </div>
+  );
 }
 
-export default App
+export default App;
