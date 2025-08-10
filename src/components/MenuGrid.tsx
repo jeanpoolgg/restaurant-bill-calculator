@@ -1,9 +1,12 @@
 import { MenuItems } from "../data/db";
-import { useOrder } from "../hooks/useOrder";
+import type { MenuItem } from "../types";
 import MenuItemCard from "./MenuItemCard";
 
-export const MenuGrid = () => {
-	const { addItem } = useOrder();
+type MenuItemProps = {
+	addItem: (item: MenuItem) => void;
+};
+
+export const MenuGrid = ({ addItem }: MenuItemProps) => {
 	return (
 		<div className="glass bg-base-50 rounded-2xl p-8 text-center shadow-sm">
 			<h2 className="text-2xl font-semibold mb-8">Today's Menu </h2>

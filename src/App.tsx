@@ -1,8 +1,11 @@
 import { Calculator, Moon, Sun } from "lucide-react";
-import { Cart } from "./components/Cart";
 import { MenuGrid } from "./components/MenuGrid";
+import { OrderContents } from "./components/OrderContents";
+import { useOrder } from "./hooks/useOrder";
 
 function App() {
+	const { order, addItem } = useOrder();
+
 	return (
 		<div className="bg-base-200 min-h-screen m-0 p-0">
 			<div className="max-w-7xl mx-auto pt-6">
@@ -31,10 +34,10 @@ function App() {
 				<main className="mx-auto px-4 sm:px-6 lg:px-8 py-8">
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 						<div className="lg:col-span-2">
-							<MenuGrid />
+							<MenuGrid addItem={addItem} />
 						</div>
 						<div className="lg:col-span-1">
-							<Cart />
+							<OrderContents order={order} />
 						</div>
 					</div>
 				</main>
