@@ -8,19 +8,22 @@ function App() {
       <div className="max-w-7xl mx-auto pt-6">
 
         {/* Header */}
-        <div className="navbar px-8 rounded-4xl glass shadow-sm">
-          <div className="navbar-start">
-            <Calculator className="w-5 h-5" />
-            <p className=" ms-2 text-md">Restaurant Bill Calculator</p>
-          </div>
-          <div className="navbar-end">
-            <label className="flex cursor-pointer gap-2 items-center">
-              <Sun className="w-5 h-5" />
-              <input type="checkbox" value="dark" className="toggle toggle-sm theme-controller" />
-              <Moon className="w-5 h-5" />
-            </label>
+        <div className="px-4 mx-auto sm:px-6 lg:px-8 pb-8 pt-4">
+          <div className="navbar px-8 rounded-4xl glass shadow-sm">
+            <div className="navbar-start">
+              <Calculator className="w-5 h-5" />
+              <p className=" ms-2 text-md">Restaurant Bill Calculator</p>
+            </div>
+            <div className="navbar-end">
+              <label className="flex cursor-pointer gap-2 items-center">
+                <Sun className="w-5 h-5" />
+                <input type="checkbox" value="dark" className="toggle toggle-sm theme-controller" />
+                <Moon className="w-5 h-5" />
+              </label>
+            </div>
           </div>
         </div>
+
 
         {/* Main Content */}
         <main className="mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -28,8 +31,9 @@ function App() {
             <div className="lg:col-span-2">
               <ProductGrid />
             </div>
-
-            <Cart />
+            <div className="lg:col-span-1">
+              <Cart />
+            </div>
           </div>
         </main>
 
