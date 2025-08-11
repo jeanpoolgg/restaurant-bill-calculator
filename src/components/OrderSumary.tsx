@@ -4,9 +4,10 @@ import type { OrderItem } from "../types";
 
 type OrderSumaryProps = {
 	order: OrderItem[];
+	tip: number;
 };
 
-export const OrderSumary = ({ order }: OrderSumaryProps) => {
+export const OrderSumary = ({ order, tip }: OrderSumaryProps) => {
 	const subTotalAmount = useMemo(
 		() => order.reduce((total, item) => total + item.quantity * item.price, 0),
 		[order],
@@ -29,13 +30,13 @@ export const OrderSumary = ({ order }: OrderSumaryProps) => {
 
 				<div className="flex justify-between">
 					<span>Propina</span>
-					<span>$10</span>
+					<span>${(subTotalAmount * tip).toFixed(2)}</span>
 				</div>
 
 				<div className="border-t border-gray-200 pt-3">
 					<div className="flex justify-between text-lg font-semibold text-base-content">
 						<span>Total</span>
-						<span>${subTotalAmount.toFixed(2)}</span>
+						<span>${(subTotalAmount + subTotalAmount * tip).toFixed(2)}</span>
 					</div>
 				</div>
 			</div>

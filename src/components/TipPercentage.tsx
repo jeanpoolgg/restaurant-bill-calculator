@@ -1,6 +1,11 @@
 import { ShoppingBag } from "lucide-react";
+import { tipOptions } from "../data/tipOptions";
 
-export const TipPercentage = () => {
+type TipPercentageProps = {
+	setTip: (tip: number) => void;
+};
+
+export const TipPercentage = ({ setTip }: TipPercentageProps) => {
 	return (
 		<div className="lg:col-span-1 space-y-6 mt-6">
 			<div className="bg-base-50 rounded-2xl p-6 shadow-sm glass">
@@ -9,46 +14,29 @@ export const TipPercentage = () => {
 					Tip
 				</h3>
 
-				<fieldset className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-					<label
-						className="relative flex items-center justify-between rounded-xl border border-base-300 bg-base-100
-               px-4 py-3 cursor-pointer hover:shadow-xs"
-					>
-						<span className="text-sm font-medium text-base-content">10%</span>
-						<input
-							type="radio"
-							name="tip"
-							value="10"
-							className="radio radio-sm"
-						/>
-					</label>
-
-					<label
-						className="relative flex items-center justify-between rounded-xl border border-base-300 bg-base-100
-               px-4 py-3 cursor-pointer hover:shadow-xs"
-					>
-						<span className="text-sm font-medium text-base-content">20%</span>
-						<input
-							type="radio"
-							name="tip"
-							value="20"
-							className="radio radio-sm"
-							checked
-						/>
-					</label>
-
-					<label
-						className="relative flex items-center justify-between rounded-xl border border-base-300 bg-base-100
-               px-4 py-3 cursor-pointer hover:shadow-xs"
-					>
-						<span className="text-sm font-medium text-base-content">30%</span>
-						<input
-							type="radio"
-							name="tip"
-							value="30"
-							className="radio radio-sm"
-						/>
-					</label>
+				<fieldset>
+					<form action="" className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+						{tipOptions.map((tip) => (
+							<label
+								key={tip.id}
+								htmlFor={tip.id}
+								className="relative flex items-center justify-between rounded-xl border border-base-300 bg-base-100
+		   px-4 py-3 cursor-pointer hover:shadow-xs"
+							>
+								<span className="text-sm font-medium text-base-content">
+									{tip.label}
+								</span>
+								<input
+									id={tip.id}
+									type="radio"
+									name="tip"
+									value={tip.value}
+									onChange={() => setTip(tip.value)}
+									className="radio radio-sm"
+								/>
+							</label>
+						))}
+					</form>
 				</fieldset>
 			</div>
 		</div>
