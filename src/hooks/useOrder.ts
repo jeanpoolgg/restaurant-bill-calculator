@@ -20,14 +20,16 @@ export const useOrder = () => {
 		}
 	};
 
-	const removeItem = (itemId: string) => {
-		const index = order.findIndex((orderItem) => orderItem.id === itemId);
+	const removeItem = (itemId: MenuItem["id"]) => {
+		// const index = order.findIndex((orderItem) => orderItem.id === itemId);
 
-		if (index !== -1) {
-			const updatedOrder = [...order];
-			updatedOrder.splice(index, 1);
-			setOrder(updatedOrder);
-		}
+		// if (index !== -1) {
+		// 	const updatedOrder = [...order];
+		// 	updatedOrder.splice(index, 1);
+		// 	setOrder(updatedOrder);
+		// }
+
+		setOrder(order.filter((orderItem) => orderItem.id !== itemId));
 	};
 
 	return {

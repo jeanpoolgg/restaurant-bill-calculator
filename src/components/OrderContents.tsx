@@ -1,9 +1,9 @@
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
-import type { OrderItem } from "../types";
+import type { MenuItem, OrderItem } from "../types";
 
 type OrdeProps = {
 	order: OrderItem[];
-	removeItem: (itemId: string) => void;
+	removeItem: (itemId: MenuItem["id"]) => void;
 };
 
 export const OrderContents = ({ order, removeItem }: OrdeProps) => {
