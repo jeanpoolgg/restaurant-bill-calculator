@@ -5,9 +5,10 @@ import type { OrderItem } from "../types";
 type OrderSumaryProps = {
 	order: OrderItem[];
 	tip: number;
+	placeOrder: () => void;
 };
 
-export const OrderSumary = ({ order, tip }: OrderSumaryProps) => {
+export const OrderSumary = ({ order, tip, placeOrder }: OrderSumaryProps) => {
 	const subTotalAmount = useMemo(
 		() => order.reduce((total, item) => total + item.quantity * item.price, 0),
 		[order],
@@ -50,6 +51,7 @@ export const OrderSumary = ({ order, tip }: OrderSumaryProps) => {
 			<button
 				type="button"
 				className="w-full cursor-pointer text-base-content bg-base-300 hover:bg-base-300 font-semibold py-3 px-4 rounded-xl transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+				onClick={placeOrder}
 			>
 				Confirmar Orden
 			</button>

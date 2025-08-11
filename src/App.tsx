@@ -6,7 +6,7 @@ import { TipPercentage } from "./components/TipPercentage";
 import { useOrder } from "./hooks/useOrder";
 
 function App() {
-	const { order, addItem, removeItem, tip, setTip } = useOrder();
+	const { order, addItem, removeItem, tip, setTip, placeOrder } = useOrder();
 
 	return (
 		<div className="bg-base-200 min-h-screen m-0 p-0">
@@ -44,7 +44,11 @@ function App() {
 								{order.length > 0 && (
 									<div>
 										<TipPercentage setTip={setTip} />
-										<OrderSumary order={order} tip={tip} />
+										<OrderSumary
+											order={order}
+											tip={tip}
+											placeOrder={placeOrder}
+										/>
 									</div>
 								)}
 							</div>
