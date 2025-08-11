@@ -1,6 +1,7 @@
 import { Calculator, Moon, Sun } from "lucide-react";
 import { MenuGrid } from "./components/MenuGrid";
 import { OrderContents } from "./components/OrderContents";
+import { OrderSumary } from "./components/OrderSumary";
 import { useOrder } from "./hooks/useOrder";
 
 function App() {
@@ -36,8 +37,11 @@ function App() {
 						<div className="lg:col-span-2">
 							<MenuGrid addItem={addItem} />
 						</div>
-						<div className="lg:col-span-1">
-							<OrderContents order={order} removeItem={removeItem} />
+						<div className="lg:col-span-1 ">
+							<div className="sticky top-6 transition">
+								<OrderContents order={order} removeItem={removeItem} />
+								{order.length > 0 && <OrderSumary order={order} />}
+							</div>
 						</div>
 					</div>
 				</main>
