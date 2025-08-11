@@ -2,6 +2,7 @@ import { Calculator, Moon, Sun } from "lucide-react";
 import { MenuGrid } from "./components/MenuGrid";
 import { OrderContents } from "./components/OrderContents";
 import { OrderSumary } from "./components/OrderSumary";
+import { TipPercentage } from "./components/TipPercentage";
 import { useOrder } from "./hooks/useOrder";
 
 function App() {
@@ -40,7 +41,12 @@ function App() {
 						<div className="lg:col-span-1 ">
 							<div className="sticky top-6 transition">
 								<OrderContents order={order} removeItem={removeItem} />
-								{order.length > 0 && <OrderSumary order={order} />}
+								{order.length > 0 && (
+									<div>
+										<TipPercentage />
+										<OrderSumary order={order} />
+									</div>
+								)}
 							</div>
 						</div>
 					</div>
