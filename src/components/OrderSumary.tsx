@@ -13,6 +13,12 @@ export const OrderSumary = ({ order, tip }: OrderSumaryProps) => {
 		[order],
 	);
 
+	const tipAmount = useMemo(() => subTotalAmount * tip, [subTotalAmount, tip]);
+	const totalAmount = useMemo(
+		() => subTotalAmount + tipAmount,
+		[subTotalAmount, tipAmount],
+	);
+
 	return (
 		<div className="bg-base-50 mt-6 rounded-2xl p-6 shadow-sm glass">
 			<div className="flex items-center space-x-2 mb-6">
@@ -30,13 +36,13 @@ export const OrderSumary = ({ order, tip }: OrderSumaryProps) => {
 
 				<div className="flex justify-between">
 					<span>Propina</span>
-					<span>${(subTotalAmount * tip).toFixed(2)}</span>
+					<span>${tipAmount.toFixed(2)}</span>
 				</div>
 
 				<div className="border-t border-gray-200 pt-3">
 					<div className="flex justify-between text-lg font-semibold text-base-content">
 						<span>Total</span>
-						<span>${(subTotalAmount + subTotalAmount * tip).toFixed(2)}</span>
+						<span>${totalAmount.toFixed(2)}</span>
 					</div>
 				</div>
 			</div>
