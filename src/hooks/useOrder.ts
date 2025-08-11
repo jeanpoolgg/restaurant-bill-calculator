@@ -20,10 +20,19 @@ export const useOrder = () => {
 		}
 	};
 
-	console.log(order);
+	const removeItem = (itemId: string) => {
+		const index = order.findIndex((orderItem) => orderItem.id === itemId);
+
+		if (index !== -1) {
+			const updatedOrder = [...order];
+			updatedOrder.splice(index, 1);
+			setOrder(updatedOrder);
+		}
+	};
 
 	return {
 		order,
 		addItem,
+		removeItem,
 	};
 };

@@ -4,7 +4,7 @@ import { OrderContents } from "./components/OrderContents";
 import { useOrder } from "./hooks/useOrder";
 
 function App() {
-	const { order, addItem } = useOrder();
+	const { order, addItem, removeItem } = useOrder();
 
 	return (
 		<div className="bg-base-200 min-h-screen m-0 p-0">
@@ -37,7 +37,7 @@ function App() {
 							<MenuGrid addItem={addItem} />
 						</div>
 						<div className="lg:col-span-1">
-							<OrderContents order={order} />
+							<OrderContents order={order} removeItem={removeItem} />
 						</div>
 					</div>
 				</main>

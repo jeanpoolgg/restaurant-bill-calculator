@@ -3,9 +3,10 @@ import type { OrderItem } from "../types";
 
 type OrdeProps = {
 	order: OrderItem[];
+	removeItem: (itemId: string) => void;
 };
 
-export const OrderContents = ({ order }: OrdeProps) => {
+export const OrderContents = ({ order, removeItem }: OrdeProps) => {
 	if (order.length === 0) {
 		return (
 			<div className="bg-base-50 rounded-2xl p-8 text-center shadow-sm glass">
@@ -69,13 +70,15 @@ export const OrderContents = ({ order }: OrdeProps) => {
 												<Plus className="h-3 w-3" />
 											</button>
 										</div>
-
-										<button
-											type="button"
-											className="p-1 rounded-lg text-red-500 hover:bg-red-50 transition-colors"
-										>
-											<Trash2 className="h-4 w-4" />
-										</button>
+										<div className="tooltip tooltip-left" data-tip="Eliminar">
+											<button
+												onClick={() => removeItem(item.id)}
+												type="button"
+												className="p-1 cursor-pointer rounded-lg text-red-500 hover:bg-red-50 transition-colors"
+											>
+												<Trash2 className="h-4 w-4" />
+											</button>
+										</div>
 									</div>
 								</div>
 							</div>
